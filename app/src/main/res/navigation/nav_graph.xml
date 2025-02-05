@@ -17,4 +17,8 @@
         android:id="@+id/createNoteFragment"
         android:name="cn.ckai.note.CreateNoteFragment"
         android:label="Create Note" />
+    <fragment
+        android:id="@+id/noteDetail"
+        android:name="cn.ckai.note.NoteDetail"
+        android:label="Note Detail" />
 </navigation>

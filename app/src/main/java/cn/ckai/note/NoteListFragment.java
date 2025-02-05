@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,6 +35,15 @@ public class NoteListFragment extends Fragment {
         noteAdapter = new NoteAdapter();
         recyclerView.setAdapter(noteAdapter);
 
+        noteAdapter.setOnClickListener(new NoteAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Note note = noteAdapter.getItemAt(position);
+                noteViewModel.setSelectedNote(note);
+                NavHostFragment.findNavController(NoteListFragment.this).navigate(R.id.noteDetail);
+            }
+        });
+
         FloatingActionButton fabAddNote = view.findViewById(R.id.fabAddNote);
         fabAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +57,8 @@ public class NoteListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        noteViewModel = new ViewModelProvider(requireActivity()).get(NoteViewModel.class);
+        noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+
         noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), new Observer<List<Note>>() {
             @Override
             public void onChanged(List<Note> notes) {
