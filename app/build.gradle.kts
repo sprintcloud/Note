@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "cn.ckai.note"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "cn.ckai.note"
         minSdk = 34
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -32,12 +32,27 @@ android {
 }
 
 dependencies {
+    implementation (libs.core)
+    implementation (libs.appcompat)
+    implementation (libs.material)
+    implementation (libs.constraintlayout)
 
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    // Navigation Component
+    implementation (libs.navigation.fragment)
+    implementation (libs.navigation.ui)
+
+    // Room
+    implementation (libs.room.runtime)
+    annotationProcessor (libs.room.compiler)
+
+    // Lifecycle
+    implementation (libs.lifecycle.viewmodel)
+    implementation (libs.lifecycle.livedata)
+
+    // RecyclerView
+    implementation (libs.recyclerview)
+
+    testImplementation (libs.junit)
+    androidTestImplementation (libs.ext.junit)
+    androidTestImplementation (libs.espresso.core)
 }
