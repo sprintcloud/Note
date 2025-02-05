@@ -40,17 +40,10 @@ public class NoteListFragment extends Fragment {
             public void onItemClick(int position) {
                 Note note = noteAdapter.getItemAt(position);
                 noteViewModel.setSelectedNote(note);
-                NavHostFragment.findNavController(NoteListFragment.this).navigate(R.id.noteDetail);
+                NavHostFragment.findNavController(NoteListFragment.this).navigate(R.id.noteListFragment);
             }
         });
 
-        FloatingActionButton fabAddNote = view.findViewById(R.id.fabAddNote);
-        fabAddNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(NoteListFragment.this).navigate(R.id.action_noteListFragment_to_createNoteFragment);
-            }
-        });
         return view;
     }
 

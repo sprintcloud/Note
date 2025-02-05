@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/noteListFragment">
 
@@ -10,15 +8,18 @@
         android:name="cn.ckai.note.NoteListFragment"
         android:label="Note List">
         <action
-            android:id="@+id/action_noteListFragment_to_createNoteFragment"
-            app:destination="@id/createNoteFragment" />
+            android:id="@+id/action_noteListFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_to_noteCreateFragment"
+            app:destination="@id/noteCreateFragment" />
     </fragment>
     <fragment
-        android:id="@+id/createNoteFragment"
-        android:name="cn.ckai.note.CreateNoteFragment"
-        android:label="Create Note" />
-    <fragment
-        android:id="@+id/noteDetail"
+        android:id="@+id/noteDetailFragment"
         android:name="cn.ckai.note.NoteDetail"
         android:label="Note Detail" />
+    <fragment
+        android:id="@+id/noteCreateFragment"
+        android:name="cn.ckai.note.CreateNoteFragment"
+        android:label="Create Note" />
 </navigation>

@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/noteListFragment"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Home" />
+    <item
+        android:id="@+id/noteCreateFragment"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Notes" />
+</menu>
