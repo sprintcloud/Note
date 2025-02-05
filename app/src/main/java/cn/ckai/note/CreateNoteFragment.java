@@ -29,7 +29,7 @@ public class CreateNoteFragment extends Fragment {
         editTextContent = view.findViewById(R.id.editTextContent);
         Button buttonSaveNote = view.findViewById(R.id.buttonSaveNote);
 
-        noteViewModell = new ViewModelProvider(this).get(NoteViewModel.class);
+        noteViewModell = new ViewModelProvider(requireActivity()).get(NoteViewModel.class);
 
         buttonSaveNote.setOnClickListener(new View.OnClickListener() {
             @Override

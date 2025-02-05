@@ -1,17 +1,21 @@
 package cn.ckai.note;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
-public class NoteViewModel extends ViewModel {
+public class NoteViewModel extends AndroidViewModel {
     private LiveData<List<Note>> allNotes;
-    private NoteDao noteDao;
+    private NoteRepositorio noteRepositorio;
 
-    public NoteViewModel(NoteDao noteDao) {
-        this.noteDao = noteDao;
-        allNotes = noteDao.getAllNotes();
+    public NoteViewModel(@NonNull Application application) {
+        super(application);
+        noteRepositorio = new NoteRepositorio(application);
     }
 
     public LiveData<List<Note>> getAllNotes() {
@@ -22,7 +26,7 @@ public class NoteViewModel extends ViewModel {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                noteDao.insertNote(note);
+                noteRepositorio.insertNote(note);
             }
         }).start();
     }
