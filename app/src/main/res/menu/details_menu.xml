@@ -1,0 +1,6 @@
+<!-- Note/app/src/main/res/menu/main_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/deleteNotes"
+        android:title="Delete this Note" />
+</menu>

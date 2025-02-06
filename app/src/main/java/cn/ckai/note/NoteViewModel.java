@@ -1,6 +1,7 @@
 package cn.ckai.note;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -36,5 +37,17 @@ public class NoteViewModel extends AndroidViewModel {
 
     public MutableLiveData<Note> getSelectedNote() {
         return selectedNote;
+    }
+
+    public void deleteAllNotes() {
+        noteRepositorio.deleteAllNotes();
+    }
+
+    public void deleteNote(Note note) {
+        noteRepositorio.deleteNote(note);
+    }
+
+    public void updateNote(Note note) {
+        noteRepositorio.updateNote(note);
     }
 }
